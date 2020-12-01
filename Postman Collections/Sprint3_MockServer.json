@@ -1,0 +1,813 @@
+{
+  "info": {
+    "_postman_id": "e4e6aa67-ab97-480e-9772-c62ee531f493",
+    "name": "Sprint 3 Mock Server",
+    "description": "An API for the Cart on an E-commerce store selling fan gear.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "post Cart",
+      "item": [
+        {
+          "name": "/postCart",
+          "_postman_id": "0a42d658-45e1-4082-9d4d-dbd58977f7e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "{{url}}/postCart",
+            "description": "Adds an item to the cart"
+          },
+          "response": [
+            {
+              "id": "80f9a0cc-5865-4f1d-8616-0bddb2edf50e",
+              "name": "Succesfully added an item to the cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": "{{url}}/postCart"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully added an Item to the Cart.\"\n}"
+            },
+            {
+              "id": "ed1c8a6e-1de1-44d9-a239-f3105ee907cc",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": "{{url}}/postCart/Error"
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: Item could not be added.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/postCart/:CartID",
+          "_postman_id": "cfb7248b-0d90-4a66-9c99-e08f0d523067",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/postCart?CartID=000000",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "postCart"
+              ],
+              "query": [
+                {
+                  "key": "CartID",
+                  "value": "000000"
+                }
+              ]
+            },
+            "description": "Adds an item to the cart"
+          },
+          "response": [
+            {
+              "id": "80a62983-cc04-45d8-a532-97f313d683e1",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/postCart?CartID=000000",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postCart"
+                  ],
+                  "query": [
+                    {
+                      "key": "CartID",
+                      "value": "000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: Cart ID not recognized, Item not added.\"\n}"
+            },
+            {
+              "id": "bd6e96bf-d6e6-4960-9144-7eca4cd0b6ad",
+              "name": "Succesfully added an item to the cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/postCart?CartID=123456",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postCart"
+                  ],
+                  "query": [
+                    {
+                      "key": "CartID",
+                      "value": "123456"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully added an Item to the Cart.\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "f61e10db-5032-4a7a-9516-36727ab18b26"
+    },
+    {
+      "name": "post Saved Cart",
+      "item": [
+        {
+          "name": "/postSavedCart/:CartID/:UserID",
+          "_postman_id": "e900ff63-e5ef-421b-9dd3-c58aea786883",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/postSavedCart?CartID=123456&UserID=678901",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "postSavedCart"
+              ],
+              "query": [
+                {
+                  "key": "CartID",
+                  "value": "123456"
+                },
+                {
+                  "key": "UserID",
+                  "value": "678901"
+                }
+              ]
+            },
+            "description": "Saves a specific cart to a specific user"
+          },
+          "response": [
+            {
+              "id": "8df7ef25-e4f1-427d-bb30-56ecf9ad3c0f",
+              "name": "Succesfully saved cart to user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart?CartID=123456&UserID=678901",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart"
+                  ],
+                  "query": [
+                    {
+                      "key": "CartID",
+                      "value": "123456"
+                    },
+                    {
+                      "key": "UserID",
+                      "value": "678901"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully saved Cart to User.\"\n}"
+            },
+            {
+              "id": "e7241292-79c2-46a3-a8be-2a91ab6c0705",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart?CartID=000000&UserID=000000",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart"
+                  ],
+                  "query": [
+                    {
+                      "key": "CartID",
+                      "value": "000000"
+                    },
+                    {
+                      "key": "UserID",
+                      "value": "000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: Cart and User IDs not recognized.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/postSavedCart/:UserID",
+          "_postman_id": "4f5488d6-6d2d-4220-98e9-2ca9676fdbd8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/postSavedCart?UserID=123456",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "postSavedCart"
+              ],
+              "query": [
+                {
+                  "key": "UserID",
+                  "value": "123456"
+                }
+              ]
+            },
+            "description": "Saves a specific cart to a specific user"
+          },
+          "response": [
+            {
+              "id": "617b7200-73ae-47fe-88d7-fb090110d157",
+              "name": "Succesfully added item cart to user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart?UserID=123456",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart"
+                  ],
+                  "query": [
+                    {
+                      "key": "UserID",
+                      "value": "123456"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully added Item Cart to User.\"\n}"
+            },
+            {
+              "id": "f13086bf-9f21-4087-9a2c-885d6ffdbefb",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart?UserID=000000",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart"
+                  ],
+                  "query": [
+                    {
+                      "key": "UserID",
+                      "value": "000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: User ID not recognized.\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "366b4b13-4685-419c-a2f5-e67dc926a74b"
+    },
+    {
+      "name": "/getCart/:CartID",
+      "_postman_id": "be51ae9f-d23b-498d-bb83-f68f4e6968a0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/getCart?CartID=123456",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "getCart"
+          ],
+          "query": [
+            {
+              "key": "CartID",
+              "value": "123456"
+            }
+          ]
+        },
+        "description": "Retrieves a list of items in the current cart"
+      },
+      "response": [
+        {
+          "id": "3e4accfe-9392-4c8c-ab13-91ed75cab455",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getCart?CartID=000000",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getCart"
+              ],
+              "query": [
+                {
+                  "key": "CartID",
+                  "value": "000000"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: Cart ID not recognized.\"\n}"
+        },
+        {
+          "id": "c0911960-cd5b-4291-ab3a-665bc6ae9779",
+          "name": "Cart successfully retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getCart?CartID=123456",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getCart"
+              ],
+              "query": [
+                {
+                  "key": "CartID",
+                  "value": "123456"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n {\n  \"id\": 1265793,\n  \"name\": \"Clemson T-shirt\",\n  \"description\": \"Orange with purple lettering\",\n  \"price\": 49.99,\n  \"quantity\": 1,\n  \"stock\": 127\n },\n {\n  \"id\": 57392462,\n  \"name\": \"Clemson Baseball Cap\",\n  \"description\": \"Purple tiger paw\",\n  \"price\": 29.99,\n  \"quantity\": 2,\n  \"stock\": 35\n }\n]"
+        }
+      ]
+    },
+    {
+      "name": "/postCartExpireTime",
+      "_postman_id": "b1f15910-afef-4f35-9059-6c48fe760eb2",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"ExpireTime\": \"<string>\"\n}",
+          "options": {
+            "raw": {}
+          }
+        },
+        "url": "{{url}}/postCartExpireTime/Error",
+        "description": "Adds a time that the cart will expire"
+      },
+      "response": [
+        {
+          "id": "9b34fd5b-c3a5-4985-abf8-d70b8c549443",
+          "name": "Scucessfully added expiry time to cart",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ExpireTime\": \"<string>\"\n}"
+            },
+            "url": "{{url}}/postCartExpireTime"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Successfully added expiry time to Cart.\"\n}"
+        },
+        {
+          "id": "d1137750-4851-4e56-8094-a1ed1ce71ac9",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ExpireTime\": \"<string>\"\n}"
+            },
+            "url": "{{url}}/postCartExpireTime/Error"
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: Time not added.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "/getSavedCart/:UserID",
+      "_postman_id": "e89fbf36-6976-4d6c-98b4-67a5ec78cc55",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/getSavedCart?UserID=5397617",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "getSavedCart"
+          ],
+          "query": [
+            {
+              "key": "UserID",
+              "value": "5397617"
+            }
+          ]
+        },
+        "description": "Retrieves a list of items in saved cart coresponding to UserID"
+      },
+      "response": [
+        {
+          "id": "19b1fdfa-4907-49d2-80e0-5b81a6a10607",
+          "name": "Cart successfully retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getSavedCart?UserID=5397617",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getSavedCart"
+              ],
+              "query": [
+                {
+                  "key": "UserID",
+                  "value": "5397617"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"UserID\": 5397617,\n \"UCart\": [\n  {\n   \"id\": 1234567,\n   \"name\": \"Clemson T-shirt\",\n   \"description\": \"Orange with purple lettering\",\n   \"price\": 49.99,\n   \"quantity\": 1,\n   \"stock\": 127\n  },\n  {\n   \"id\": 45752957,\n   \"name\": \"Clemson Baseball Cap\",\n   \"description\": \"Purple tiger paw\",\n   \"price\": 29.99,\n   \"quantity\": 2,\n   \"stock\": 35\n  }\n ],\n \"expireTime\": {\n  \"date\": \"27 November 2020\",\n  \"hours\": 8,\n  \"min\": 30\n }\n}"
+        },
+        {
+          "id": "e3d9463a-92fb-4a03-9912-845c4c5bbf40",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getSavedCart?UserID=000000",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getSavedCart"
+              ],
+              "query": [
+                {
+                  "key": "UserID",
+                  "value": "000000"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: User ID not recognized.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "/getExpiringCarts",
+      "_postman_id": "20e13146-b8ee-42fc-8b63-56e600b0f364",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{url}}/getExpiringCarts",
+        "description": "Gets the saved carts that will expire in the next 3 hours"
+      },
+      "response": [
+        {
+          "id": "c27e251a-fa4d-446a-8b9f-b24242fd317a",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "{{url}}/getExpiringCarts/Error"
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: Cart could not be located.\"\n}"
+        },
+        {
+          "id": "ddc89a1e-2953-49ae-aacd-06478188f1ac",
+          "name": "Successfully got List of Carts expiring in the next 3 hours",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "{{url}}/getExpiringCarts"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"UserID\": 32556795,\n \"UCart\": [\n  {\n   \"id\": 1234567,\n   \"name\": \"Clemson T-shirt\",\n   \"description\": \"Orange with purple lettering\",\n   \"price\": 49.99,\n   \"quantity\": 1,\n   \"stock\": 127\n  },\n  {\n   \"id\": 54547593,\n   \"name\": \"Clemson Baseball Cap\",\n   \"description\": \"Purple tiger paw\",\n   \"price\": 29.99,\n   \"quantity\": 2,\n   \"stock\": 35\n  }\n ],\n \"expireTime\": {\n  \"date\": \"27 November 2020\",\n  \"hours\": 8,\n  \"min\": 30\n }\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
